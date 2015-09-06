@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName">
+	
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxActive" value="128"></property>
+		<property name="maxIdle" value="16"></property>
+		<property name="minIdle" value="4"></property>
+		<property name="maxWait" value="5000"></property>
+		<property name="minEvictableIdleTimeMillis" value="300000"></property>
+		<property name="numTestsPerEvictionRun" value="3"></property>
+		<property name="timeBetweenEvictionRunsMillis" value="60000"></property>
+		<property name="whenExhaustedAction" value="1"></property>
+	</bean>
+
+	<!--Redis -->
+	<bean id="cacheDataSource"
+		class="com.netease.framework.dao.connect.cache.NRedisCacheConnectionManager">
+		<property name="url"><value>${redis.url}</value></property>
+		<property name="config" ref="jedisPoolConfig" />
+		<property name="expireDay" value="2592000" />
+	</bean>	
+
+	<!-- switch between local and remote deployment -->
+	<bean id="sqlDataSource"
+		class="com.netease.framework.dao.connect.sql.DDBSqlConnectionManager">
+		<property name="url">
+			<value>${ddb.url}</value>
+		</property>
+	</bean>	
+	
+	<bean id="materialDao" class="com.netease.yixin.publicaccount.dao.TxtMaterialDao">
+		<property name="domainDaoSupport" ref="domainDaoSupport"></property>
+	</bean>
+	
+	<bean id="pbAccountInfoDao" class="com.netease.yixin.publicaccount.dao.PbAccountInfoDao">
+		<property name="domainDaoSupport" ref="domainDaoSupport"></property>
+	</bean>
+	
+	<bean id="appDao" class="com.netease.yixin.publicaccount.dao.AppDao">
+		<property name="domainDaoSupport" ref="domainDaoSupport"></property>
+	</bean>
+
+</beans>

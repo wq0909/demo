@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	 http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd	
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<!-- switch between local and remote deployment -->
+	<!-- 基本共同服务配置 -->
+	<context:annotation-config />
+	<task:executor id="myExecutor" pool-size="5" />
+	<task:annotation-driven executor="myExecutor" />
+	
+	<context:component-scan base-package="com.netease.yixin.publicaccount.datang">
+		<context:exclude-filter type="regex"
+			expression="com\.netease\.yixin\.publicaccount\.datang\.\.web\..*" />
+	</context:component-scan>
+
+	<bean id="applicationContextHolder" class="com.netease.libs.spring.ApplicationContextHolder"></bean>
+	
+	<bean id="propertyConfigurer"
+		class="com.netease.libs.spring.BasePropertyPlaceholderConfigurer">
+		<property name="order" value="0" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:db.properties</value>
+				<value>classpath:config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="httpClientUtil" class="com.netease.libs.http.HttpClientUtil">
+		<constructor-arg index="0" value="32" />
+		<constructor-arg index="1" value="GBK" />
+		<constructor-arg index="2" value="GBK" />
+ 	</bean>
+
+	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
+		<property name="serializationInclusion">
+			<value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value>
+		</property>
+	</bean>
+
+	<bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="packagesToScan" value="com.netease.yixin" />
+	</bean>
+
+	<bean id="xstreamMarshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
+		<property name="autodetectAnnotations" value="true" />
+		<property name="streamDriver">
+			<bean class="com.thoughtworks.xstream.io.xml.DomDriver" />
+		</property>
+	</bean>
+
+	<bean id="refreshWordJob"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="wordService" />
+		<property name="targetMethod" value="flush" />
+		<property name="concurrent" value="true" />
+	</bean>
+
+	<bean id="refreshWordTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail">
+			<ref bean="refreshWordJob" />
+		</property>
+		<property name="startDelay" value="0" />
+		<property name="repeatCount" value="-1" />
+		<property name="repeatInterval" value="60000" />
+	</bean>
+
+	<bean id="quartzFactory"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="refreshWordTrigger" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

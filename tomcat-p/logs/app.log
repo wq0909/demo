@@ -1,0 +1,378 @@
+[INFO ]2015-05-11 12:38:44,021, [Class]ContextLoader, Root WebApplicationContext: initialization started
+[INFO ]2015-05-11 12:38:44,118, [Class]XmlWebApplicationContext, Refreshing Root WebApplicationContext: startup date [Mon May 11 12:38:44 CST 2015]; root of context hierarchy
+[INFO ]2015-05-11 12:38:44,187, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [ndao-common.xml]
+[INFO ]2015-05-11 12:38:44,354, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 12:38:44,437, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-robot.xml]
+[INFO ]2015-05-11 12:38:44,485, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 12:38:44,525, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-ds.xml]
+[INFO ]2015-05-11 12:38:44,741, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:38:44,744, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:38:44,746, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:38:44,748, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:38:44,769, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 12:38:45,011, [Class]ThreadPoolTaskExecutor, Initializing ExecutorService 
+[INFO ]2015-05-11 12:38:45,014, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.config.TaskExecutorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:38:45,017, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:38:45,052, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@66fb70: defining beans [dbTransManager,sqlTemplet,cacheTemplet,abstractSqlDaoBase,domainDaoSupport,defaultConnectionFactory,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,cacheEngine,cacheTransManager,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:38:45,327, [Class]DefaultListableBeanFactory, Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@66fb70: defining beans [dbTransManager,sqlTemplet,cacheTemplet,abstractSqlDaoBase,domainDaoSupport,defaultConnectionFactory,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,cacheEngine,cacheTransManager,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:38:45,334, [Class]ThreadPoolTaskExecutor, Shutting down ExecutorService
+[ERROR]2015-05-11 12:38:45,337, [Class]ContextLoader, Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlTemplet' defined in class path resource [ndao-common.xml]: Cannot resolve reference to bean 'sqlDataSource' while setting bean property 'connectionManager'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'sqlDataSource' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:329)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1393)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1134)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:626)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:389)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:294)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:112)
+	at com.netease.libs.spring.listener.NContextLoaderListener.contextInitialized(NContextLoaderListener.java:11)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4797)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5291)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1559)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1549)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'sqlDataSource' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:568)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1102)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:278)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	... 25 more
+[INFO ]2015-05-11 12:40:38,510, [Class]ContextLoader, Root WebApplicationContext: initialization started
+[INFO ]2015-05-11 12:40:38,601, [Class]XmlWebApplicationContext, Refreshing Root WebApplicationContext: startup date [Mon May 11 12:40:38 CST 2015]; root of context hierarchy
+[INFO ]2015-05-11 12:40:38,662, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-robot.xml]
+[INFO ]2015-05-11 12:40:38,828, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 12:40:38,900, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-ds.xml]
+[INFO ]2015-05-11 12:40:39,087, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:40:39,090, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:40:39,092, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:40:39,094, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:40:39,113, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 12:40:39,169, [Class]ThreadPoolTaskExecutor, Initializing ExecutorService 
+[INFO ]2015-05-11 12:40:39,171, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.config.TaskExecutorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:40:39,174, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:40:39,209, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@cb3814: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:40:39,668, [Class]Jaxb2Marshaller, Creating JAXBContext by scanning packages [com.netease.yixin]
+[INFO ]2015-05-11 12:40:40,124, [Class]DefaultListableBeanFactory, Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@cb3814: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:40:40,131, [Class]HttpClientUtil, Http connection pool will destory...
+[INFO ]2015-05-11 12:40:40,133, [Class]HttpClientUtil, Http connection pool destroyed!
+[INFO ]2015-05-11 12:40:40,135, [Class]ThreadPoolTaskExecutor, Shutting down ExecutorService
+[ERROR]2015-05-11 12:40:40,138, [Class]ContextLoader, Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'refreshWordJob' defined in class path resource [appContext-robot.xml]: Cannot resolve reference to bean 'wordService' while setting bean property 'targetObject'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'wordService' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:329)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1393)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1134)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:608)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:389)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:294)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:112)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4797)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5291)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1559)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1549)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'wordService' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:568)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1102)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:278)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	... 24 more
+[INFO ]2015-05-11 12:42:29,766, [Class]ContextLoader, Root WebApplicationContext: initialization started
+[INFO ]2015-05-11 12:42:29,857, [Class]XmlWebApplicationContext, Refreshing Root WebApplicationContext: startup date [Mon May 11 12:42:29 CST 2015]; root of context hierarchy
+[INFO ]2015-05-11 12:42:29,922, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-robot.xml]
+[INFO ]2015-05-11 12:42:30,085, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 12:42:30,174, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-ds.xml]
+[INFO ]2015-05-11 12:42:30,359, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:42:30,361, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:42:30,364, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:42:30,366, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:42:30,386, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 12:42:30,430, [Class]ThreadPoolTaskExecutor, Initializing ExecutorService 
+[INFO ]2015-05-11 12:42:30,432, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.config.TaskExecutorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:42:30,435, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:42:30,484, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@f703cf: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,wordService,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:42:30,953, [Class]Jaxb2Marshaller, Creating JAXBContext by scanning packages [com.netease.yixin]
+[INFO ]2015-05-11 12:42:31,449, [Class]SchedulerSignalerImpl, Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ]2015-05-11 12:42:31,455, [Class]QuartzScheduler, Quartz Scheduler v.1.8.5 created.
+[INFO ]2015-05-11 12:42:31,459, [Class]RAMJobStore, RAMJobStore initialized.
+[INFO ]2015-05-11 12:42:31,463, [Class]QuartzScheduler, Scheduler meta-data: Quartz Scheduler (v1.8.5) 'quartzFactory' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ]2015-05-11 12:42:31,468, [Class]StdSchedulerFactory, Quartz scheduler 'quartzFactory' initialized from an externally provided properties instance.
+[INFO ]2015-05-11 12:42:31,471, [Class]StdSchedulerFactory, Quartz scheduler version: 1.8.5
+[INFO ]2015-05-11 12:42:31,476, [Class]QuartzScheduler, JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@eec231
+[INFO ]2015-05-11 12:42:31,486, [Class]DefaultLifecycleProcessor, Starting beans in phase 2147483647
+[INFO ]2015-05-11 12:42:31,488, [Class]SchedulerFactoryBean, Starting Quartz Scheduler now
+[INFO ]2015-05-11 12:42:31,491, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED started.
+[INFO ]2015-05-11 12:42:31,509, [Class]ContextLoader, Root WebApplicationContext: initialization completed in 1738 ms
+[INFO ]2015-05-11 12:42:31,667, [Class]DispatcherServlet, FrameworkServlet 'mvc-dispatcher': initialization started
+[INFO ]2015-05-11 12:42:31,673, [Class]XmlWebApplicationContext, Refreshing WebApplicationContext for namespace 'mvc-dispatcher-servlet': startup date [Mon May 11 12:42:31 CST 2015]; parent: Root WebApplicationContext
+[INFO ]2015-05-11 12:42:31,676, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [mvc-dispatcher-servlet.xml]
+[INFO ]2015-05-11 12:42:31,718, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 12:42:31,796, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 12:42:31,815, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@199fe27: defining beans [indexController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.web.servlet.handler.MappedInterceptor#0,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#1,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.view.ContentNegotiatingViewResolver#0,objectMapper,jaxb2Marshaller,messageSource,xstreamMarshaller,fmXmlEscape,freemarkerConfig,handlerMapping,exceptionResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@f703cf
+[INFO ]2015-05-11 12:42:31,921, [Class]RequestMappingHandlerMapping, Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.netease.yixin.publicaccount.datang.web.controllers.IndexController.add(java.lang.Long,org.springframework.ui.ModelMap)
+[INFO ]2015-05-11 12:42:32,398, [Class]Jaxb2Marshaller, Creating JAXBContext by scanning packages [com.netease.yixin]
+[INFO ]2015-05-11 12:42:32,693, [Class]FreeMarkerConfigurer, ClassTemplateLoader for Spring macros added to FreeMarker configuration
+[INFO ]2015-05-11 12:42:32,715, [Class]DefaultAnnotationHandlerMapping, Root mapping to handler 'indexController'
+[INFO ]2015-05-11 12:42:32,751, [Class]DispatcherServlet, FrameworkServlet 'mvc-dispatcher': initialization completed in 1082 ms
+[INFO ]2015-05-11 12:43:14,856, [Class]XmlWebApplicationContext, Closing WebApplicationContext for namespace 'mvc-dispatcher-servlet': startup date [Mon May 11 12:42:31 CST 2015]; parent: Root WebApplicationContext
+[INFO ]2015-05-11 12:43:14,861, [Class]DefaultListableBeanFactory, Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@199fe27: defining beans [indexController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.web.servlet.handler.MappedInterceptor#0,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#1,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.view.ContentNegotiatingViewResolver#0,objectMapper,jaxb2Marshaller,messageSource,xstreamMarshaller,fmXmlEscape,freemarkerConfig,handlerMapping,exceptionResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@f703cf
+[INFO ]2015-05-11 12:43:14,874, [Class]XmlWebApplicationContext, Closing Root WebApplicationContext: startup date [Mon May 11 12:42:29 CST 2015]; root of context hierarchy
+[INFO ]2015-05-11 12:43:14,877, [Class]DefaultLifecycleProcessor, Stopping beans in phase 2147483647
+[INFO ]2015-05-11 12:43:14,880, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED paused.
+[INFO ]2015-05-11 12:43:14,882, [Class]DefaultListableBeanFactory, Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@f703cf: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,wordService,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:43:14,888, [Class]SchedulerFactoryBean, Shutting down Quartz Scheduler
+[INFO ]2015-05-11 12:43:14,890, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED shutting down.
+[INFO ]2015-05-11 12:43:14,892, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED paused.
+[INFO ]2015-05-11 12:43:14,895, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED shutdown complete.
+[INFO ]2015-05-11 12:43:14,897, [Class]HttpClientUtil, Http connection pool will destory...
+[INFO ]2015-05-11 12:43:14,899, [Class]HttpClientUtil, Http connection pool destroyed!
+[INFO ]2015-05-11 12:43:14,902, [Class]ThreadPoolTaskExecutor, Shutting down ExecutorService
+[INFO ]2015-05-11 12:43:26,722, [Class]ContextLoader, Root WebApplicationContext: initialization started
+[INFO ]2015-05-11 12:43:26,813, [Class]XmlWebApplicationContext, Refreshing Root WebApplicationContext: startup date [Mon May 11 12:43:26 CST 2015]; root of context hierarchy
+[INFO ]2015-05-11 12:43:26,879, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-robot.xml]
+[INFO ]2015-05-11 12:43:27,030, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 12:43:27,096, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-ds.xml]
+[INFO ]2015-05-11 12:43:27,287, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:43:27,288, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:43:27,288, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:43:27,289, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:43:27,305, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 12:43:27,345, [Class]ThreadPoolTaskExecutor, Initializing ExecutorService 
+[INFO ]2015-05-11 12:43:27,346, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.config.TaskExecutorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:43:27,346, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:43:27,388, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@108bdaf: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,wordService,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:43:27,834, [Class]Jaxb2Marshaller, Creating JAXBContext by scanning packages [com.netease.yixin]
+[INFO ]2015-05-11 12:43:28,356, [Class]SchedulerSignalerImpl, Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ]2015-05-11 12:43:28,359, [Class]QuartzScheduler, Quartz Scheduler v.1.8.5 created.
+[INFO ]2015-05-11 12:43:28,361, [Class]RAMJobStore, RAMJobStore initialized.
+[INFO ]2015-05-11 12:43:28,362, [Class]QuartzScheduler, Scheduler meta-data: Quartz Scheduler (v1.8.5) 'quartzFactory' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ]2015-05-11 12:43:28,363, [Class]StdSchedulerFactory, Quartz scheduler 'quartzFactory' initialized from an externally provided properties instance.
+[INFO ]2015-05-11 12:43:28,363, [Class]StdSchedulerFactory, Quartz scheduler version: 1.8.5
+[INFO ]2015-05-11 12:43:28,365, [Class]QuartzScheduler, JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@c388d2
+[INFO ]2015-05-11 12:43:28,373, [Class]DefaultLifecycleProcessor, Starting beans in phase 2147483647
+[INFO ]2015-05-11 12:43:28,373, [Class]SchedulerFactoryBean, Starting Quartz Scheduler now
+[INFO ]2015-05-11 12:43:28,374, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED started.
+[INFO ]2015-05-11 12:43:28,385, [Class]ContextLoader, Root WebApplicationContext: initialization completed in 1659 ms
+[INFO ]2015-05-11 12:43:28,502, [Class]DispatcherServlet, FrameworkServlet 'mvc-dispatcher': initialization started
+[INFO ]2015-05-11 12:43:28,506, [Class]XmlWebApplicationContext, Refreshing WebApplicationContext for namespace 'mvc-dispatcher-servlet': startup date [Mon May 11 12:43:28 CST 2015]; parent: Root WebApplicationContext
+[INFO ]2015-05-11 12:43:28,507, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [mvc-dispatcher-servlet.xml]
+[INFO ]2015-05-11 12:43:28,550, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 12:43:28,643, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 12:43:28,659, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@153c1c1: defining beans [indexController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.web.servlet.handler.MappedInterceptor#0,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#1,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.view.ContentNegotiatingViewResolver#0,objectMapper,jaxb2Marshaller,messageSource,xstreamMarshaller,fmXmlEscape,freemarkerConfig,handlerMapping,exceptionResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@108bdaf
+[INFO ]2015-05-11 12:43:28,748, [Class]RequestMappingHandlerMapping, Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.netease.yixin.publicaccount.datang.web.controllers.IndexController.add(java.lang.Long,org.springframework.ui.ModelMap)
+[INFO ]2015-05-11 12:43:29,094, [Class]Jaxb2Marshaller, Creating JAXBContext by scanning packages [com.netease.yixin]
+[INFO ]2015-05-11 12:43:29,387, [Class]FreeMarkerConfigurer, ClassTemplateLoader for Spring macros added to FreeMarker configuration
+[INFO ]2015-05-11 12:43:29,407, [Class]DefaultAnnotationHandlerMapping, Root mapping to handler 'indexController'
+[INFO ]2015-05-11 12:43:29,440, [Class]DispatcherServlet, FrameworkServlet 'mvc-dispatcher': initialization completed in 938 ms
+[INFO ]2015-05-11 12:44:11,112, [Class]XmlWebApplicationContext, Closing WebApplicationContext for namespace 'mvc-dispatcher-servlet': startup date [Mon May 11 12:43:28 CST 2015]; parent: Root WebApplicationContext
+[INFO ]2015-05-11 12:44:11,116, [Class]DefaultListableBeanFactory, Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@153c1c1: defining beans [indexController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.web.servlet.handler.MappedInterceptor#0,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#1,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.view.ContentNegotiatingViewResolver#0,objectMapper,jaxb2Marshaller,messageSource,xstreamMarshaller,fmXmlEscape,freemarkerConfig,handlerMapping,exceptionResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@108bdaf
+[INFO ]2015-05-11 12:44:11,133, [Class]XmlWebApplicationContext, Closing Root WebApplicationContext: startup date [Mon May 11 12:43:26 CST 2015]; root of context hierarchy
+[INFO ]2015-05-11 12:44:11,136, [Class]DefaultLifecycleProcessor, Stopping beans in phase 2147483647
+[INFO ]2015-05-11 12:44:11,140, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED paused.
+[INFO ]2015-05-11 12:44:11,142, [Class]DefaultListableBeanFactory, Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@108bdaf: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,wordService,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:44:11,149, [Class]SchedulerFactoryBean, Shutting down Quartz Scheduler
+[INFO ]2015-05-11 12:44:11,151, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED shutting down.
+[INFO ]2015-05-11 12:44:11,153, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED paused.
+[INFO ]2015-05-11 12:44:11,155, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED shutdown complete.
+[INFO ]2015-05-11 12:44:11,159, [Class]HttpClientUtil, Http connection pool will destory...
+[INFO ]2015-05-11 12:44:11,161, [Class]HttpClientUtil, Http connection pool destroyed!
+[INFO ]2015-05-11 12:44:11,164, [Class]ThreadPoolTaskExecutor, Shutting down ExecutorService
+[INFO ]2015-05-11 12:44:23,770, [Class]ContextLoader, Root WebApplicationContext: initialization started
+[INFO ]2015-05-11 12:44:23,860, [Class]XmlWebApplicationContext, Refreshing Root WebApplicationContext: startup date [Mon May 11 12:44:23 CST 2015]; root of context hierarchy
+[INFO ]2015-05-11 12:44:23,925, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-robot.xml]
+[INFO ]2015-05-11 12:44:24,101, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 12:44:24,171, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-ds.xml]
+[INFO ]2015-05-11 12:44:24,360, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:44:24,362, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:44:24,365, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:44:24,367, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:44:24,386, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 12:44:24,432, [Class]ThreadPoolTaskExecutor, Initializing ExecutorService 
+[INFO ]2015-05-11 12:44:24,434, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.config.TaskExecutorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:44:24,438, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:44:24,474, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3c9020: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,wordService,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:44:24,908, [Class]Jaxb2Marshaller, Creating JAXBContext by scanning packages [com.netease.yixin]
+[INFO ]2015-05-11 12:44:25,411, [Class]SchedulerSignalerImpl, Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ]2015-05-11 12:44:25,414, [Class]QuartzScheduler, Quartz Scheduler v.1.8.5 created.
+[INFO ]2015-05-11 12:44:25,417, [Class]RAMJobStore, RAMJobStore initialized.
+[INFO ]2015-05-11 12:44:25,419, [Class]QuartzScheduler, Scheduler meta-data: Quartz Scheduler (v1.8.5) 'quartzFactory' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ]2015-05-11 12:44:25,420, [Class]StdSchedulerFactory, Quartz scheduler 'quartzFactory' initialized from an externally provided properties instance.
+[INFO ]2015-05-11 12:44:25,421, [Class]StdSchedulerFactory, Quartz scheduler version: 1.8.5
+[INFO ]2015-05-11 12:44:25,424, [Class]QuartzScheduler, JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@7a6088
+[INFO ]2015-05-11 12:44:25,432, [Class]DefaultLifecycleProcessor, Starting beans in phase 2147483647
+[INFO ]2015-05-11 12:44:25,433, [Class]SchedulerFactoryBean, Starting Quartz Scheduler now
+[INFO ]2015-05-11 12:44:25,433, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED started.
+[INFO ]2015-05-11 12:44:25,445, [Class]ContextLoader, Root WebApplicationContext: initialization completed in 1670 ms
+[INFO ]2015-05-11 12:44:25,563, [Class]DispatcherServlet, FrameworkServlet 'mvc-dispatcher': initialization started
+[INFO ]2015-05-11 12:44:25,567, [Class]XmlWebApplicationContext, Refreshing WebApplicationContext for namespace 'mvc-dispatcher-servlet': startup date [Mon May 11 12:44:25 CST 2015]; parent: Root WebApplicationContext
+[INFO ]2015-05-11 12:44:25,570, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [mvc-dispatcher-servlet.xml]
+[INFO ]2015-05-11 12:44:25,612, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 12:44:25,705, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 12:44:25,725, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@122a262: defining beans [indexController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.web.servlet.handler.MappedInterceptor#0,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#1,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.view.ContentNegotiatingViewResolver#0,objectMapper,jaxb2Marshaller,messageSource,xstreamMarshaller,fmXmlEscape,freemarkerConfig,handlerMapping,exceptionResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@3c9020
+[INFO ]2015-05-11 12:44:25,813, [Class]RequestMappingHandlerMapping, Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.netease.yixin.publicaccount.datang.web.controllers.IndexController.add(java.lang.Long,org.springframework.ui.ModelMap)
+[INFO ]2015-05-11 12:44:26,138, [Class]Jaxb2Marshaller, Creating JAXBContext by scanning packages [com.netease.yixin]
+[INFO ]2015-05-11 12:44:26,431, [Class]FreeMarkerConfigurer, ClassTemplateLoader for Spring macros added to FreeMarker configuration
+[INFO ]2015-05-11 12:44:26,451, [Class]DefaultAnnotationHandlerMapping, Root mapping to handler 'indexController'
+[INFO ]2015-05-11 12:44:26,484, [Class]DispatcherServlet, FrameworkServlet 'mvc-dispatcher': initialization completed in 920 ms
+[INFO ]2015-05-11 12:46:18,647, [Class]XmlWebApplicationContext, Closing WebApplicationContext for namespace 'mvc-dispatcher-servlet': startup date [Mon May 11 12:44:25 CST 2015]; parent: Root WebApplicationContext
+[INFO ]2015-05-11 12:46:18,651, [Class]DefaultListableBeanFactory, Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@122a262: defining beans [indexController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.web.servlet.handler.MappedInterceptor#0,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#1,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.view.ContentNegotiatingViewResolver#0,objectMapper,jaxb2Marshaller,messageSource,xstreamMarshaller,fmXmlEscape,freemarkerConfig,handlerMapping,exceptionResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@3c9020
+[INFO ]2015-05-11 12:46:18,664, [Class]XmlWebApplicationContext, Closing Root WebApplicationContext: startup date [Mon May 11 12:44:23 CST 2015]; root of context hierarchy
+[INFO ]2015-05-11 12:46:18,667, [Class]DefaultLifecycleProcessor, Stopping beans in phase 2147483647
+[INFO ]2015-05-11 12:46:18,671, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED paused.
+[INFO ]2015-05-11 12:46:18,673, [Class]DefaultListableBeanFactory, Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3c9020: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,wordService,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:46:18,679, [Class]SchedulerFactoryBean, Shutting down Quartz Scheduler
+[INFO ]2015-05-11 12:46:18,681, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED shutting down.
+[INFO ]2015-05-11 12:46:18,683, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED paused.
+[INFO ]2015-05-11 12:46:18,685, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED shutdown complete.
+[INFO ]2015-05-11 12:46:18,687, [Class]HttpClientUtil, Http connection pool will destory...
+[INFO ]2015-05-11 12:46:18,690, [Class]HttpClientUtil, Http connection pool destroyed!
+[INFO ]2015-05-11 12:46:18,693, [Class]ThreadPoolTaskExecutor, Shutting down ExecutorService
+[INFO ]2015-05-11 12:46:30,585, [Class]ContextLoader, Root WebApplicationContext: initialization started
+[INFO ]2015-05-11 12:46:30,679, [Class]XmlWebApplicationContext, Refreshing Root WebApplicationContext: startup date [Mon May 11 12:46:30 CST 2015]; root of context hierarchy
+[INFO ]2015-05-11 12:46:30,739, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-robot.xml]
+[INFO ]2015-05-11 12:46:30,894, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 12:46:30,971, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-ds.xml]
+[INFO ]2015-05-11 12:46:31,166, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:46:31,167, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:46:31,168, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 12:46:31,169, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 12:46:31,186, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 12:46:31,230, [Class]ThreadPoolTaskExecutor, Initializing ExecutorService 
+[INFO ]2015-05-11 12:46:31,231, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.config.TaskExecutorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:46:31,233, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 12:46:31,264, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@dff48d: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,wordService,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:46:31,722, [Class]Jaxb2Marshaller, Creating JAXBContext by scanning packages [com.netease.yixin]
+[INFO ]2015-05-11 12:46:32,196, [Class]SchedulerSignalerImpl, Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ]2015-05-11 12:46:32,199, [Class]QuartzScheduler, Quartz Scheduler v.1.8.5 created.
+[INFO ]2015-05-11 12:46:32,202, [Class]RAMJobStore, RAMJobStore initialized.
+[INFO ]2015-05-11 12:46:32,204, [Class]QuartzScheduler, Scheduler meta-data: Quartz Scheduler (v1.8.5) 'quartzFactory' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ]2015-05-11 12:46:32,206, [Class]StdSchedulerFactory, Quartz scheduler 'quartzFactory' initialized from an externally provided properties instance.
+[INFO ]2015-05-11 12:46:32,207, [Class]StdSchedulerFactory, Quartz scheduler version: 1.8.5
+[INFO ]2015-05-11 12:46:32,210, [Class]QuartzScheduler, JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@9bfafa
+[INFO ]2015-05-11 12:46:32,218, [Class]DefaultLifecycleProcessor, Starting beans in phase 2147483647
+[INFO ]2015-05-11 12:46:32,219, [Class]SchedulerFactoryBean, Starting Quartz Scheduler now
+[INFO ]2015-05-11 12:46:32,220, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED started.
+[INFO ]2015-05-11 12:46:32,233, [Class]ContextLoader, Root WebApplicationContext: initialization completed in 1644 ms
+[INFO ]2015-05-11 12:46:32,354, [Class]DispatcherServlet, FrameworkServlet 'mvc-dispatcher': initialization started
+[INFO ]2015-05-11 12:46:32,358, [Class]XmlWebApplicationContext, Refreshing WebApplicationContext for namespace 'mvc-dispatcher-servlet': startup date [Mon May 11 12:46:32 CST 2015]; parent: Root WebApplicationContext
+[INFO ]2015-05-11 12:46:32,360, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [mvc-dispatcher-servlet.xml]
+[INFO ]2015-05-11 12:46:32,401, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 12:46:32,491, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 12:46:32,508, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@16695c0: defining beans [indexController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.web.servlet.handler.MappedInterceptor#0,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#1,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.view.ContentNegotiatingViewResolver#0,objectMapper,jaxb2Marshaller,messageSource,xstreamMarshaller,fmXmlEscape,freemarkerConfig,handlerMapping,exceptionResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@dff48d
+[INFO ]2015-05-11 12:46:32,598, [Class]RequestMappingHandlerMapping, Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.netease.yixin.publicaccount.datang.web.controllers.IndexController.add(java.lang.Long,org.springframework.ui.ModelMap)
+[INFO ]2015-05-11 12:46:32,922, [Class]Jaxb2Marshaller, Creating JAXBContext by scanning packages [com.netease.yixin]
+[INFO ]2015-05-11 12:46:33,209, [Class]FreeMarkerConfigurer, ClassTemplateLoader for Spring macros added to FreeMarker configuration
+[INFO ]2015-05-11 12:46:33,229, [Class]DefaultAnnotationHandlerMapping, Root mapping to handler 'indexController'
+[INFO ]2015-05-11 12:46:33,262, [Class]DispatcherServlet, FrameworkServlet 'mvc-dispatcher': initialization completed in 908 ms
+[INFO ]2015-05-11 12:46:49,171, [Class]XmlWebApplicationContext, Closing WebApplicationContext for namespace 'mvc-dispatcher-servlet': startup date [Mon May 11 12:46:32 CST 2015]; parent: Root WebApplicationContext
+[INFO ]2015-05-11 12:46:49,177, [Class]DefaultListableBeanFactory, Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@16695c0: defining beans [indexController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.web.servlet.handler.MappedInterceptor#0,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#1,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.view.ContentNegotiatingViewResolver#0,objectMapper,jaxb2Marshaller,messageSource,xstreamMarshaller,fmXmlEscape,freemarkerConfig,handlerMapping,exceptionResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@dff48d
+[INFO ]2015-05-11 12:46:49,191, [Class]XmlWebApplicationContext, Closing Root WebApplicationContext: startup date [Mon May 11 12:46:30 CST 2015]; root of context hierarchy
+[INFO ]2015-05-11 12:46:49,195, [Class]DefaultLifecycleProcessor, Stopping beans in phase 2147483647
+[INFO ]2015-05-11 12:46:49,199, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED paused.
+[INFO ]2015-05-11 12:46:49,201, [Class]DefaultListableBeanFactory, Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@dff48d: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,wordService,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 12:46:49,208, [Class]SchedulerFactoryBean, Shutting down Quartz Scheduler
+[INFO ]2015-05-11 12:46:49,210, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED shutting down.
+[INFO ]2015-05-11 12:46:49,212, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED paused.
+[INFO ]2015-05-11 12:46:49,214, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED shutdown complete.
+[INFO ]2015-05-11 12:46:49,217, [Class]HttpClientUtil, Http connection pool will destory...
+[INFO ]2015-05-11 12:46:49,219, [Class]HttpClientUtil, Http connection pool destroyed!
+[INFO ]2015-05-11 12:46:49,221, [Class]ThreadPoolTaskExecutor, Shutting down ExecutorService
+[INFO ]2015-05-11 13:39:08,275, [Class]ContextLoader, Root WebApplicationContext: initialization started
+[INFO ]2015-05-11 13:39:08,365, [Class]XmlWebApplicationContext, Refreshing Root WebApplicationContext: startup date [Mon May 11 13:39:08 CST 2015]; root of context hierarchy
+[INFO ]2015-05-11 13:39:08,425, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-robot.xml]
+[INFO ]2015-05-11 13:39:08,656, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 13:39:08,724, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [appContext-ds.xml]
+[INFO ]2015-05-11 13:39:08,926, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 13:39:08,927, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 13:39:08,928, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [db.properties]
+[INFO ]2015-05-11 13:39:08,928, [Class]BasePropertyPlaceholderConfigurer, Loading properties file from class path resource [config.properties]
+[INFO ]2015-05-11 13:39:08,947, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 13:39:08,987, [Class]ThreadPoolTaskExecutor, Initializing ExecutorService 
+[INFO ]2015-05-11 13:39:08,987, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.config.TaskExecutorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 13:39:08,987, [Class]XmlWebApplicationContext, Bean 'myExecutor' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ]2015-05-11 13:39:09,021, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@11d5c22: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,myExecutor,org.springframework.context.annotation.internalAsyncAnnotationProcessor,org.springframework.context.annotation.internalScheduledAnnotationProcessor,wordService,indexController,applicationContextHolder,propertyConfigurer,httpClientUtil,objectMapper,jaxb2Marshaller,xstreamMarshaller,refreshWordJob,refreshWordTrigger,quartzFactory,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor,pid,online,yixinUrl,selfUrl,publicUrl,ddb.url]; root of factory hierarchy
+[INFO ]2015-05-11 13:39:09,530, [Class]Jaxb2Marshaller, Creating JAXBContext by scanning packages [com.netease.yixin]
+[INFO ]2015-05-11 13:39:10,072, [Class]SchedulerSignalerImpl, Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ]2015-05-11 13:39:10,077, [Class]QuartzScheduler, Quartz Scheduler v.1.8.5 created.
+[INFO ]2015-05-11 13:39:10,078, [Class]RAMJobStore, RAMJobStore initialized.
+[INFO ]2015-05-11 13:39:10,080, [Class]QuartzScheduler, Scheduler meta-data: Quartz Scheduler (v1.8.5) 'quartzFactory' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ]2015-05-11 13:39:10,080, [Class]StdSchedulerFactory, Quartz scheduler 'quartzFactory' initialized from an externally provided properties instance.
+[INFO ]2015-05-11 13:39:10,080, [Class]StdSchedulerFactory, Quartz scheduler version: 1.8.5
+[INFO ]2015-05-11 13:39:10,082, [Class]QuartzScheduler, JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@134626b
+[INFO ]2015-05-11 13:39:10,089, [Class]DefaultLifecycleProcessor, Starting beans in phase 2147483647
+[INFO ]2015-05-11 13:39:10,089, [Class]SchedulerFactoryBean, Starting Quartz Scheduler now
+[INFO ]2015-05-11 13:39:10,089, [Class]QuartzScheduler, Scheduler quartzFactory_$_NON_CLUSTERED started.
+[INFO ]2015-05-11 13:39:10,102, [Class]ContextLoader, Root WebApplicationContext: initialization completed in 1822 ms
+[INFO ]2015-05-11 13:39:10,268, [Class]DispatcherServlet, FrameworkServlet 'mvc-dispatcher': initialization started
+[INFO ]2015-05-11 13:39:10,272, [Class]XmlWebApplicationContext, Refreshing WebApplicationContext for namespace 'mvc-dispatcher-servlet': startup date [Mon May 11 13:39:10 CST 2015]; parent: Root WebApplicationContext
+[INFO ]2015-05-11 13:39:10,272, [Class]XmlBeanDefinitionReader, Loading XML bean definitions from class path resource [mvc-dispatcher-servlet.xml]
+[INFO ]2015-05-11 13:39:10,310, [Class]ClassPathBeanDefinitionScanner, JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[INFO ]2015-05-11 13:39:10,400, [Class]AutowiredAnnotationBeanPostProcessor, JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO ]2015-05-11 13:39:10,424, [Class]DefaultListableBeanFactory, Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@98920c: defining beans [indexController,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.web.servlet.handler.MappedInterceptor#0,mvcContentNegotiationManager,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#1,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.view.ContentNegotiatingViewResolver#0,objectMapper,jaxb2Marshaller,messageSource,xstreamMarshaller,fmXmlEscape,freemarkerConfig,handlerMapping,exceptionResolver,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@11d5c22
+[INFO ]2015-05-11 13:39:10,514, [Class]RequestMappingHandlerMapping, Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.netease.yixin.publicaccount.datang.web.controllers.IndexController.add(java.lang.Long,org.springframework.ui.ModelMap)
+[INFO ]2015-05-11 13:39:11,055, [Class]Jaxb2Marshaller, Creating JAXBContext by scanning packages [com.netease.yixin]
+[INFO ]2015-05-11 13:39:11,350, [Class]FreeMarkerConfigurer, ClassTemplateLoader for Spring macros added to FreeMarker configuration
+[INFO ]2015-05-11 13:39:11,369, [Class]DefaultAnnotationHandlerMapping, Root mapping to handler 'indexController'
+[INFO ]2015-05-11 13:39:11,402, [Class]DispatcherServlet, FrameworkServlet 'mvc-dispatcher': initialization completed in 1134 ms

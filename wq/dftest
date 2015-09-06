@@ -1,0 +1,10 @@
+FROM 106.2.33.84:5000/nce2/debian:7.8
+ADD sources.list /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install -y nginx
+RUN mkdir /home/test
+ADD test /home/test
+ADD nginxStart.sh /home/nginxStart.sh
+RUN chmod +x /home/nginxStart.sh
+EXPOSE 1080
+CMD ["/home/nginxStart.sh"]

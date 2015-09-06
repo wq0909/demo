@@ -1,0 +1,81 @@
+2014/07/01 16:08:36 [emerg] 29001#0: bind() to 0.0.0.0:20142 failed (98: Address already in use)
+2014/07/01 16:08:36 [emerg] 29001#0: bind() to 0.0.0.0:20142 failed (98: Address already in use)
+2014/07/01 16:08:36 [emerg] 29001#0: bind() to 0.0.0.0:20142 failed (98: Address already in use)
+2014/07/01 16:08:36 [emerg] 29001#0: bind() to 0.0.0.0:20142 failed (98: Address already in use)
+2014/07/01 16:08:36 [emerg] 29001#0: bind() to 0.0.0.0:20142 failed (98: Address already in use)
+2014/07/01 16:08:36 [emerg] 29001#0: still could not bind()
+2014/07/01 16:09:54 [error] 29226#0: *1 open() "/home/pushpublic/nginx/nginx-1.6.0/html/favicon.ico" failed (2: No such file or directory), client: 172.31.135.214, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "mon1.photo.163.org:20142"
+2014/07/01 16:14:46 [notice] 30881#0: signal process started
+2014/07/01 19:30:11 [notice] 9641#0: signal process started
+2014/12/03 10:46:03 [notice] 11157#0: signal process started
+2014/12/03 10:49:21 [notice] 17995#0: signal process started
+2014/12/03 10:52:36 [notice] 24033#0: signal process started
+2014/12/03 10:52:39 [notice] 24090#0: signal process started
+2014/12/03 10:52:59 [notice] 24622#0: signal process started
+2014/12/03 10:53:25 [notice] 25784#0: signal process started
+2014/12/03 10:59:49 [notice] 6441#0: signal process started
+2014/12/03 10:59:56 [notice] 6503#0: signal process started
+2014/12/03 11:05:54 [notice] 19724#0: signal process started
+2014/12/03 11:06:01 [notice] 19984#0: signal process started
+2014/12/04 10:27:34 [notice] 9859#0: signal process started
+2014/12/04 10:27:40 [notice] 9921#0: signal process started
+2014/12/04 10:57:42 [notice] 1823#0: signal process started
+2014/12/04 10:57:44 [notice] 1845#0: signal process started
+2014/12/04 10:57:47 [notice] 1902#0: signal process started
+2014/12/04 10:57:50 [notice] 1921#0: signal process started
+2014/12/04 10:57:53 [notice] 1981#0: signal process started
+2014/12/04 10:57:56 [notice] 2014#0: signal process started
+2014/12/04 10:58:04 [notice] 2742#0: signal process started
+2014/12/04 10:58:30 [notice] 2846#0: signal process started
+2014/12/04 11:39:45 [notice] 4693#0: signal process started
+2014/12/04 11:39:54 [notice] 4737#0: signal process started
+2014/12/04 11:40:28 [notice] 5512#0: signal process started
+2014/12/04 11:40:43 [notice] 5561#0: signal process started
+2014/12/04 11:41:09 [notice] 6338#0: signal process started
+2014/12/04 11:50:43 [notice] 14276#0: signal process started
+2014/12/04 12:46:03 [notice] 29061#0: signal process started
+2014/12/04 12:46:23 [notice] 29116#0: signal process started
+2014/12/04 13:43:44 [notice] 13022#0: signal process started
+2014/12/04 20:41:28 [notice] 30687#0: signal process started
+2014/12/15 10:32:54 [notice] 24655#0: signal process started
+2014/12/15 10:33:01 [notice] 24698#0: signal process started
+2014/12/22 17:47:11 [notice] 13639#0: signal process started
+2014/12/22 17:47:33 [notice] 13742#0: signal process started
+2014/12/22 17:47:52 [notice] 14125#0: signal process started
+2014/12/22 17:48:03 [notice] 14216#0: signal process started
+2014/12/22 17:48:15 [notice] 14293#0: signal process started
+2014/12/22 17:49:08 [notice] 14858#0: signal process started
+2014/12/22 17:49:16 [notice] 14912#0: signal process started
+2014/12/22 17:50:33 [notice] 15515#0: signal process started
+2014/12/22 17:50:44 [notice] 15580#0: signal process started
+2014/12/22 18:40:16 [notice] 11147#0: signal process started
+2014/12/22 18:40:29 [notice] 11511#0: signal process started
+2014/12/22 18:40:36 [notice] 11564#0: signal process started
+2014/12/22 18:40:52 [notice] 11646#0: signal process started
+2014/12/22 18:41:04 [notice] 11745#0: signal process started
+2014/12/22 18:41:19 [notice] 11832#0: signal process started
+2014/12/22 18:41:28 [notice] 12175#0: signal process started
+2014/12/22 18:41:38 [notice] 12238#0: signal process started
+2014/12/22 18:41:49 [notice] 12305#0: signal process started
+2014/12/22 18:42:00 [notice] 12378#0: signal process started
+2014/12/22 18:42:11 [notice] 12481#0: signal process started
+2014/12/22 18:42:33 [notice] 12866#0: signal process started
+2014/12/22 18:42:40 [notice] 12928#0: signal process started
+2014/12/22 18:45:03 [notice] 14119#0: signal process started
+2014/12/22 18:45:19 [notice] 14211#0: signal process started
+2014/12/22 18:45:28 [notice] 14551#0: signal process started
+2014/12/22 18:45:40 [notice] 14620#0: signal process started
+2015/01/04 16:33:19 [notice] 27290#0: signal process started
+2015/01/06 16:39:10 [notice] 4951#0: signal process started
+2015/01/06 16:43:12 [notice] 23589#0: signal process started
+2015/01/06 16:43:22 [notice] 25787#0: signal process started
+2015/01/06 16:56:06 [notice] 22122#0: signal process started
+2015/01/06 17:01:12 [notice] 13388#0: signal process started
+2015/01/06 17:08:40 [notice] 15761#0: signal process started
+2015/01/06 17:08:47 [notice] 17024#0: signal process started
+2015/01/06 17:08:50 [notice] 18067#0: signal process started
+2015/01/06 17:10:19 [notice] 24262#0: signal process started
+2015/01/06 17:31:03 [notice] 28154#0: signal process started
+2015/01/06 17:31:05 [notice] 28187#0: signal process started
+2015/01/07 10:20:02 [notice] 15533#0: signal process started
+2015/01/07 10:20:10 [notice] 16624#0: signal process started

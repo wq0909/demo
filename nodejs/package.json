@@ -1,0 +1,12 @@
+{
+    "name": "node-demo", 
+    "version": "0.0.1", 
+    "private": true, 
+    "dependencies": {
+      "express": "2.3.12", 
+      "jade": ">=0.0.1", 
+      "mysql": ">=0.9.1", 
+      "memcached": "0.0.1",
+      "expresso": ">=0.8.1"
+    }
+}

@@ -1,0 +1,155 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<context:component-scan base-package="com.netease.yixin.publicaccount.datang.web" />
+	<context:annotation-config />
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+	<mvc:view-controller path="/" view-name="/mvc" />
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/dt/**" />
+			<mvc:mapping path="/paconfig/**" />
+			<mvc:mapping path="/urs/**" />
+			<bean class="com.netease.libs.spring.interceptor.IpSecurityInterceptor">
+				<property name="ipFilter" value="true"></property>
+				<property name="allowIpList">
+					<list>
+						<value>127.0.0.1</value>
+						<value>114.113.197.*</value>
+						<value>192.168.164.*</value>
+						<value>220.181.75.*</value>
+						<value>123.58.173.*</value>
+						<value>123.58.182.*</value>
+						<value>123.125.48.*</value>
+						<value>218.107.55.*</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+			<bean class="org.springframework.http.converter.FormHttpMessageConverter" />
+			<bean
+				class="org.springframework.http.converter.xml.SourceHttpMessageConverter" />
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="defaultContentType" value="application/json" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="html" value="text/html" />
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+			</map>
+		</property>
+		<property name="viewResolvers">
+			<list>
+				<bean
+					class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+					<property name="cache" value="false" />
+					<property name="prefix" value="" />
+					<property name="suffix" value=".ftl" />
+					<property name="exposeSpringMacroHelpers" value="true" />
+					<property name="exposeRequestAttributes" value="true" />
+					<property name="exposeSessionAttributes" value="true" />
+					<property name="contentType" value="text/html;charset=UTF-8" />
+				</bean>
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+					<property name="objectMapper" ref="objectMapper" />
+					<property name="modelKeys">
+						<set>
+							<value>result</value>
+							<value>code</value>
+							<value>message</value>
+						</set>
+					</property>
+				</bean>
+				<bean id="marshallingView"
+					class="org.springframework.web.servlet.view.xml.MarshallingView">
+					<property name="marshaller" ref="xstreamMarshaller"></property>
+					<property name="modelKey" value="result"></property>
+					<property name="contentType" value="application/xml" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
+		<property name="serializationInclusion">
+			<value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value>
+		</property>
+	</bean>
+
+	<bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="packagesToScan" value="com.netease.yixin" />
+	</bean>
+
+	<!-- Resolves messages to support internationalization -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:messages/dt</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="xstreamMarshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
+		<property name="autodetectAnnotations" value="true" />
+		<property name="streamDriver">
+			<bean class="com.thoughtworks.xstream.io.xml.DomDriver">
+				<constructor-arg value="UTF8"></constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
+
+	<bean id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/template/" />
+		<property name="freemarkerSettings">
+			<props>
+				<!-- 10 minutes -->
+				<prop key="template_update_delay">0</prop>
+				<prop key="default_encoding">UTF-8</prop>
+				<prop key="locale">zh_cn</prop>
+				<prop key="number_format">0.##########</prop>
+				<prop key="url_escaping_charset">UTF-8</prop>
+			</props>
+		</property>
+		<property name="freemarkerVariables">
+			<map>
+				<entry key="xml_escape" value-ref="fmXmlEscape" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="handlerMapping"
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+
+	<bean id="exceptionResolver"
+		class="com.netease.yixin.publicaccount.datang.web.exception.AppsExceptionResolver" />
+
+</beans>

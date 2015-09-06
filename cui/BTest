@@ -1,0 +1,10 @@
+FROM registry.hz.netease.com/nce2/debian:7.8
+ADD sources.list /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install -y nginx supervisor
+RUN mkdir -p /var/log/supervisor
+ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN mkdir /home/www-data
+ADD www-data /home/www-data
+EXPOSE 1080
+CMD ["/usr/bin/supervisord", "-n"]

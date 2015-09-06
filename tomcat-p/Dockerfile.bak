@@ -1,0 +1,12 @@
+FROM registry.hz.netease.com/nce2/tomcat:or7_7.0.62
+
+ADD run.sh /run.sh
+
+RUN chmod +x /run.sh
+RUN touch test.txt
+
+ADD grinder-3.11.tar.gz grinder-3.11.tar.gz
+
+Run tar zxvf grinder-3.11.tar.gz
+
+CMD ["/run.sh"]

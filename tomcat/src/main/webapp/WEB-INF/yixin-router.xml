@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot>
+
+	<rule>
+		<type>text</type>
+		<forward>/dt2/yixin.wx</forward>
+	</rule>
+	<rule>
+		<type>image</type>
+		<forward>/dt2/image.wx</forward>
+	</rule>
+	<rule>
+		<type>audio</type>
+		<forward>/dt2/audio.wx</forward>
+	</rule>
+	<rule>
+		<type>video</type>
+		<forward>/dt2/video.wx</forward>
+	</rule>
+	<rule>
+		<type>music</type>
+		<forward>/dt2/music.wx</forward>
+	</rule>
+	<rule>
+		<type>location</type>
+		<forward>/dt2/location.wx</forward>
+	</rule>
+	<rule>
+		<type>hello</type>
+		<forward>/dt2/hello.wx</forward>
+	</rule>
+	<!-- 自定义菜单的事件 -->
+
+	<rule>
+		<type>event</type>
+		<event>CLICK</event>
+		<eventKey>/dt2/ai.wx</eventKey>
+		<forward>/dt2/ai.wx</forward>
+	</rule>
+
+	<rule>
+		<type>event</type>
+		<event>CLICK</event>
+		<eventKey>/dt2/chat.wx</eventKey>
+		<forward>/dt2/chat.wx</forward>
+	</rule>
+
+	<rule>
+		<type>event</type>
+		<event>CLICK</event>
+		<eventKey>/dt2/self.wx*</eventKey>
+		<forward>/dt2/self.wx</forward>
+	</rule>
+
+	<rule>
+		<type>event</type>
+		<event>CLICK</event>
+		<eventKey>/dt2/logout.wx</eventKey>
+		<forward>/dt2/logout.wx</forward>
+	</rule>
+	<!-- 其他服务结束 -->
+	<rule>
+		<type>event</type>
+		<event>subscribe</event>
+		<forward>/dt2/subscribe.wx</forward>
+	</rule>
+
+	<rule>
+		<type>event</type>
+		<event>unsubscribe</event>
+		<forward>/dt2/unsubscribe.wx</forward>
+	</rule>
+
+	<rule>
+		<type>mark</type>
+		<forward>/dt2/mark.wx</forward>
+	</rule>
+
+</robot>
