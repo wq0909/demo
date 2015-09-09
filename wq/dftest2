@@ -1,10 +1,8 @@
 FROM registry.hz.netease.com/nce2/debian:7.8
-ADD sources.list /etc/apt/sources.list
+RUN echo "deb http://mirrors.163.com/debian wheezy main non-free contrib" > /etc/apt/sources.list
+RUN echo "deb http://mirrors.163.com/debian wheezy-proposed-updates main contrib non-free" >> /etc/apt/sources.list
+RUN echo "deb-src http://mirrors.163.com/debian wheezy main non-free contrib" >> /etc/apt/sources.list
+RUN echo "deb-src http://mirrors.163.com/debian wheezy-proposed-updates main contrib non-free" >> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y nginx
-RUN mkdir /home/test
-ADD test /home/test
-ADD nginxStart.sh /home/nginxStart.sh
-RUN chmod +x /home/nginxStart.sh
-EXPOSE 1080
-#CMD ["/home/nginxStart.sh"]
+RUN echo "service nginx start" >> /nstart.sh
