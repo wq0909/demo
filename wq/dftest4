@@ -5,4 +5,5 @@ RUN echo "deb-src http://mirrors.163.com/debian wheezy main non-free contrib" >>
 RUN echo "deb-src http://mirrors.163.com/debian wheezy-proposed-updates main contrib non-free" >> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y nginx
-RUN echo "service nginx start" >> /nstart.sh
+RUN echo "service nginx start" >> nstart.sh
+RUN chmod +x nstart.sh
