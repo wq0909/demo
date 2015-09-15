@@ -6,4 +6,5 @@ RUN echo "deb-src http://mirrors.163.com/debian wheezy-proposed-updates main con
 RUN apt-get update
 RUN apt-get install -y nginx
 RUN echo "service nginx start" >> nstart.sh
+RUN echo "touch test4" > nstart.sh
 RUN chmod +x nstart.sh
