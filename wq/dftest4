@@ -8,5 +8,5 @@ RUN apt-get install -y nginx
 RUN echo "#!/bin/bash" > nstart.sh
 RUN echo "service nginx start" >> nstart.sh
 RUN echo "touch test4" >> nstart.sh
-RUN echo "touch a9c19" >> nstart.sh
+RUN echo "touch 3d928" >> nstart.sh
 RUN chmod +x nstart.sh
