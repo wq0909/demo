@@ -2,4 +2,4 @@ FROM registry.hz.netease.com/nce2/tomcat:or7_7.0.62
 
 ADD compressed /webroot
 
-RUN echo "v1.0" > version.txt
+RUN echo "v2.0" > version.txt
