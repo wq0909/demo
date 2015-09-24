@@ -9,4 +9,4 @@ RUN echo "#!/bin/bash" > nstart.sh
 RUN echo "service nginx start" >> nstart.sh
 RUN echo "touch test3" >> nstart.sh
 RUN chmod +x nstart.sh
-CMD ["/nstart.sh"]
+CMD ["/bin/bash"]
