@@ -10,4 +10,6 @@ RUN echo "service nginx start" >> nstart.sh
 RUN echo "touch test4" >> nstart.sh
 RUN echo "touch a9c19" >> nstart.sh
 RUN chmod +x nstart.sh
-CMD ["/bin/bash","-c","/nstart.sh"]
+WORKDIR /etc/nginx
+CMD ["nginx"]
+#CMD ["/bin/bash","-c","/nstart.sh"]
