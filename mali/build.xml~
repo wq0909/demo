@@ -1,0 +1,24 @@
+<project>
+
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+<path id="lib">
+	<fileset dir="./lib" includes="*.jar"/>
+</path>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac includeantruntime="false" classpathref="lib" srcdir="src" destdir="build/classes" />
+    </target>
+
+    <target name="war" depends="compile">
+        <mkdir dir="build/war"/>
+        <war destfile="build/war/HelloWorld.war" webxml="src/web.xml">
+        <classes dir="build/classes"/>
+        </war>
+    </target>
+
+
+</project>
