@@ -8,12 +8,19 @@
 FROM registry.hz.netease.com/nce2/debian:7.8
 
 # Install Nginx.
+RUN echo "deb http://mirrors.163.com/debian wheezy main non-free contrib" > /etc/apt/sources.list
+RUN echo "deb http://mirrors.163.com/debian wheezy-proposed-updates main contrib non-free" >> /etc/apt/sources.list
+RUN echo "deb-src http://mirrors.163.com/debian wheezy main non-free contrib" >> /etc/apt/sources.list
+RUN echo "deb-src http://mirrors.163.com/debian wheezy-proposed-updates main contrib non-free" >> /etc/apt/sources.list
+
 RUN \
   apt-get update && \
   apt-get install -y nginx && \
   rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
-  chown -R www-data:www-data /var/lib/nginx
+  chown -R www-data:www-data /var/lib/nginx && \
+  touch date.txt && \
+  echo date >> date.txt
 
 # Define mountable directories.
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
