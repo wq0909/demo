@@ -20,7 +20,7 @@ RUN \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx && \
   touch date.txt && \
-  echo "v2:   " >> date.txt && \
+  echo "v3:   " >> date.txt && \
   date >> date.txt
   
 
